@@ -7,8 +7,8 @@
 ## 目录
 - 互联网学习
   - JS相关知识
-    - [js闭包相关知识]
-    - [js中this相关知识]
+    - [js闭包相关知识](https://github.com/zxgzlx/StudyNotes/issues/1)
+    - [js中this相关知识](https://github.com/zxgzlx/StudyNotes/issues/2)
 - 电影
 - 读书笔记
 - 生活
