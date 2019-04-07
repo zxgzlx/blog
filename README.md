@@ -13,6 +13,8 @@
   - Python相关知识
   - Java相关知识
   - 移动开发相关知识
+  - 其他
+    - [VPS搭建](https://github.com/zxgzlx/blog/issues/3)
 - 电影
   - 电影推荐
   - 电影影评
