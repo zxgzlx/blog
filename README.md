@@ -10,7 +10,7 @@
     - [js闭包相关知识](https://github.com/zxgzlx/StudyNotes/issues/1)
     - [js中this相关知识](https://github.com/zxgzlx/StudyNotes/issues/2)
   - 游戏开发相关知识
-    - [缓动系统 cc.tween 介绍](https://github.com/zxgzlx/blog/issues/5)
+    - [Cocos v2.0.9新API 缓动系统 cc.tween 了解](https://github.com/zxgzlx/blog/issues/5)
   - Python相关知识
   - Java相关知识
   - 移动开发相关知识
