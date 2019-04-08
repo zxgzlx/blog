@@ -1,4 +1,4 @@
-# StudyNotes
+# 记录一些东西吧
 > 你所经历的每一次事故、不幸和挫折，实际上都是一个潜在的美妙机会，只是它们未以真面目示人，且永远对你的成功和快乐充满信心。
 
 ## 关于
@@ -10,6 +10,7 @@
     - [js闭包相关知识](https://github.com/zxgzlx/StudyNotes/issues/1)
     - [js中this相关知识](https://github.com/zxgzlx/StudyNotes/issues/2)
   - 游戏开发相关知识
+    - [缓动系统 cc.tween 介绍](https://github.com/zxgzlx/blog/issues/5)
   - Python相关知识
   - Java相关知识
   - 移动开发相关知识
