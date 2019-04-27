@@ -7,20 +7,21 @@
 ## 目录
 - 互联网学习
   - JS相关知识
-    - [js闭包相关知识](https://github.com/zxgzlx/StudyNotes/issues/1)
-    - [js中this相关知识](https://github.com/zxgzlx/StudyNotes/issues/2)
-    - [TypeScript基础语法](https://github.com/zxgzlx/blog/issues/8)
+    1. [js闭包相关知识](https://github.com/zxgzlx/StudyNotes/issues/1)
+    2. [js中this相关知识](https://github.com/zxgzlx/StudyNotes/issues/2)
+    3. [TypeScript基础语法](https://github.com/zxgzlx/blog/issues/8)
   - 游戏开发相关知识
-    - [Cocos v2.0.9新API 缓动系统 cc.tween 了解](https://github.com/zxgzlx/blog/issues/5)
+    1. [Cocos v2.0.9新API 缓动系统 cc.tween 了解](https://github.com/zxgzlx/blog/issues/5)
   - 设计模式
-    - [设计模式1-单例模式](https://github.com/zxgzlx/blog/issues/6)
-    - [设计模式2-工厂模式](https://github.com/zxgzlx/blog/issues/7)
+    1. [设计模式1-单例模式](https://github.com/zxgzlx/blog/issues/6)
+    2. [设计模式2-工厂模式](https://github.com/zxgzlx/blog/issues/7)
+    3. [设计模式3-观察者模式](https://github.com/zxgzlx/blog/issues/9)
   - Python相关知识
   - Java相关知识
   - 移动开发相关知识
   - 其他
-    - [VPS搭建](https://github.com/zxgzlx/blog/issues/3)
-    - [Markdown 常用语法](https://github.com/zxgzlx/blog/issues/4)
+    1. [VPS搭建](https://github.com/zxgzlx/blog/issues/3)
+    2. [Markdown 常用语法](https://github.com/zxgzlx/blog/issues/4)
 - 电影
   - 电影推荐
   - 电影影评
@@ -30,3 +31,5 @@
   - 文学、畅销类
   - 外语学习
 - 生活
+
+[回到顶部](#记录一些东西吧)
