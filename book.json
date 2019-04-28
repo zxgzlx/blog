@@ -1,0 +1,31 @@
+{
+  "title": "学习记录",
+  "author": "ZX",
+  "description": "记录工作，记录生活，记录人生",
+  "language": "zh-hans", 
+  "gitbook": "3.2.3", 
+  "styles": {
+    "website": "styles/website.css",
+    "ebook": "styles/ebook.css",
+    "pdf": "styles/pdf.css",
+    "mobi": "styles/mobi.css",
+    "epub": "styles/epub.css"
+ },
+  "plugins": [ 
+    "splitter",
+	"edit-link",
+	"search-pro",
+	"emphasize",
+	"toggle-chapters",
+	"katex",
+	"mermaid-gb3",
+	"advanced-emoji",
+	"include-codeblock"
+  ],
+  "pluginsConfig": {
+	"edit-link": {
+                "base": "https://github.com/zxgzlx/blog",
+                "label": "Edit This Page"
+            }
+  }
+}
