@@ -1,0 +1,483 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>设计模式3-观察者模式 · 学习记录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ZX">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="设计模式4-建造者模式.html" />
+    
+    
+    <link rel="prev" href="设计模式2-工厂模式.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="js设计模式-单例.html">
+            
+                <a href="js设计模式-单例.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="js设计模式-单例.html">
+            
+                <a href="js设计模式-单例.html">
+            
+                    
+                    设计模式1-单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="设计模式2-工厂模式.html">
+            
+                <a href="设计模式2-工厂模式.html">
+            
+                    
+                    设计模式2-工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="设计模式3-观察者模式.html">
+            
+                <a href="设计模式3-观察者模式.html">
+            
+                    
+                    设计模式3-观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="设计模式4-建造者模式.html">
+            
+                <a href="设计模式4-建造者模式.html">
+            
+                    
+                    设计模式4-建造者者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >设计模式3-观察者模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;">&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;</h3>
+<p>&#x4E3E;&#x4F8B;&#xFF1A;&#x5C31;&#x90A3;&#x95F4;&#x8C0D;&#x6765;&#x8BF4;&#x3002;&#x6211;&#x65B9;&#x548C;&#x5047;&#x8C61;&#x654C;&#xFF0C;&#x6211;&#x65B9;&#x6D3E;&#x591A;&#x4E2A;&#x95F4;&#x8C0D;&#x6253;&#x5165;&#x5230;&#x5047;&#x8C61;&#x654C;&#x5185;&#x90E8;&#xFF0C;&#x5F53;&#x5047;&#x8C61;&#x654C;&#x5185;&#x90E8;&#x60C5;&#x62A5;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x95F4;&#x8C0D;&#x4EEC;&#x5C31;&#x4F1A;&#x83B7;&#x53D6;&#x60C5;&#x62A5;&#x505A;&#x51FA;&#x76F8;&#x5E94;&#x7684;&#x884C;&#x4E3A;&#x3002;&#x8FD9;&#x79CD;&#x4E00;&#x4E2A;&#x5047;&#x8C61;&#x654C;&#xFF08;&#x89C2;&#x5BDF;&#x76EE;&#x6807;&#xFF0C;&#x4EA6;&#x53EB;&#x88AB;&#x89C2;&#x5BDF;&#x8005;&#xFF09;&#x5BF9;&#x5E94;&#x4E00;&#x5806;&#x95F4;&#x8C0D;&#xFF08;&#x89C2;&#x5BDF;&#x8005;&#xFF09;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x4ECE;&#x800C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x53D8;&#x5316;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x3002;</p>
+<p><strong>&#x5B9A;&#x4E49;</strong>&#xFF1A;</p>
+<pre><code class="lang-txt">&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;(Observer Pattern)&#xFF1A;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x79CD;&#x4E00;&#x5BF9;&#x591A;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x4F7F;&#x5F97;&#x6BCF;&#x5F53;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x65F6;&#xFF0C;&#x5176;&#x76F8;&#x5173;&#x4F9D;&#x8D56;&#x5BF9;&#x8C61;&#x7686;&#x5F97;&#x5230;&#x901A;&#x77E5;&#x5E76;&#x88AB;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x3002;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x7684;&#x522B;&#x540D;&#x5305;&#x62EC;&#x53D1;&#x5E03;-&#x8BA2;&#x9605;&#xFF08;Publish/Subscribe&#xFF09;&#x6A21;&#x5F0F;&#x3001;&#x6A21;&#x578B;-&#x89C6;&#x56FE;&#xFF08;Model/View&#xFF09;&#x6A21;&#x5F0F;&#x3001;&#x6E90;-&#x76D1;&#x542C;&#x5668;&#xFF08;Source/Listener&#xFF09;&#x6A21;&#x5F0F;&#x6216;&#x4ECE;&#x5C5E;&#x8005;&#xFF08;Dependents&#xFF09;&#x6A21;&#x5F0F;&#x3002;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x662F;&#x4E00;&#x79CD;&#x5BF9;&#x8C61;&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;&#x3002;
+</code></pre>
+<h4 id="&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x6982;&#x8FF0;">&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x6982;&#x8FF0;</h4>
+<p>&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x56FE;:</p>
+<p><img src="https://img-my.csdn.net/uploads/201207/05/1341501815_4830.jpg" alt="img"></p>
+<ul>
+<li><p>Subject&#xFF08;&#x76EE;&#x6807;&#xFF0C;&#x88AB;&#x89C2;&#x5BDF;&#x8005;&#xFF09;&#xFF1A;&#x76EE;&#x6807;&#x53C8;&#x79F0;&#x4E3A;&#x4E3B;&#x9898;&#xFF0C;&#x5B83;&#x662F;&#x6307;&#x88AB;&#x89C2;&#x5BDF;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5728;&#x76EE;&#x6807;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x89C2;&#x5BDF;&#x8005;&#x96C6;&#x5408;&#xFF0C;&#x4E00;&#x4E2A;&#x89C2;&#x5BDF;&#x76EE;&#x6807;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x89C2;&#x5BDF;&#x8005;&#x6765;&#x89C2;&#x5BDF;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x4E00;&#x7CFB;&#x5217;&#x65B9;&#x6CD5;&#x6765;<code>&#x589E;&#x52A0;</code>&#x548C;<code>&#x5220;&#x9664;</code>&#x89C2;&#x5BDF;&#x8005;&#x5BF9;&#x8C61;&#xFF0C;&#x540C;&#x65F6;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x901A;&#x77E5;&#x65B9;&#x6CD5;<code>notify()</code>&#x3002;&#x76EE;&#x6807;&#x7C7B;&#x53EF;&#x4EE5;&#x662F;&#x63A5;&#x53E3;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x62BD;&#x8C61;&#x7C7B;&#x6216;&#x5177;&#x4F53;&#x7C7B;&#x3002;</p>
+</li>
+<li><p>ConcreteSubject&#xFF08;&#x5177;&#x4F53;&#x76EE;&#x6807;&#xFF09;&#xFF1A;&#x5177;&#x4F53;&#x76EE;&#x6807;&#x662F;&#x76EE;&#x6807;&#x7C7B;&#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x901A;&#x5E38;&#x5B83;&#x5305;&#x542B;&#x6709;&#x7ECF;&#x5E38;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5F53;&#x5B83;&#x7684;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x65F6;&#xFF0C;&#x5411;&#x5B83;&#x7684;&#x5404;&#x4E2A;&#x89C2;&#x5BDF;&#x8005;&#x53D1;&#x51FA;&#x901A;&#x77E5;&#xFF1B;&#x540C;&#x65F6;&#x5B83;&#x8FD8;&#x5B9E;&#x73B0;&#x4E86;&#x5728;&#x76EE;&#x6807;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x62BD;&#x8C61;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x65B9;&#x6CD5;&#xFF08;&#x5982;&#x679C;&#x6709;&#x7684;&#x8BDD;&#xFF09;&#x3002;&#x5982;&#x679C;&#x65E0;&#x987B;&#x6269;&#x5C55;&#x76EE;&#x6807;&#x7C7B;&#xFF0C;&#x5219;&#x5177;&#x4F53;&#x76EE;&#x6807;&#x7C7B;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x3002;</p>
+</li>
+<li><p>Observer&#xFF08;&#x89C2;&#x5BDF;&#x8005;&#xFF09;&#xFF1A;&#x89C2;&#x5BDF;&#x8005;&#x5C06;&#x5BF9;&#x89C2;&#x5BDF;&#x76EE;&#x6807;&#x7684;&#x6539;&#x53D8;&#x505A;&#x51FA;&#x53CD;&#x5E94;&#xFF0C;&#x89C2;&#x5BDF;&#x8005;&#x4E00;&#x822C;&#x5B9A;&#x4E49;&#x4E3A;&#x63A5;&#x53E3;&#xFF0C;&#x8BE5;&#x63A5;&#x53E3;&#x58F0;&#x660E;&#x4E86;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x7684;&#x65B9;&#x6CD5;<code>update()</code>&#xFF0C;&#x56E0;&#x6B64;&#x53C8;&#x79F0;&#x4E3A;&#x62BD;&#x8C61;&#x89C2;&#x5BDF;&#x8005;&#x3002;</p>
+</li>
+<li><p>ConcreteObserver&#xFF08;&#x5177;&#x4F53;&#x89C2;&#x5BDF;&#x8005;&#xFF09;&#xFF1A;&#x5728;&#x5177;&#x4F53;&#x89C2;&#x5BDF;&#x8005;&#x4E2D;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x5177;&#x4F53;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5B83;&#x5B58;&#x50A8;&#x5177;&#x4F53;&#x89C2;&#x5BDF;&#x8005;&#x7684;&#x6709;&#x5173;&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x9700;&#x8981;&#x548C;&#x5177;&#x4F53;&#x76EE;&#x6807;&#x7684;&#x72B6;&#x6001;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#xFF1B;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;&#x5728;&#x62BD;&#x8C61;&#x89C2;&#x5BDF;&#x8005;Observer&#x4E2D;&#x5B9A;&#x4E49;&#x7684;update()&#x65B9;&#x6CD5;&#x3002;&#x901A;&#x5E38;&#x5728;&#x5B9E;&#x73B0;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x5177;&#x4F53;&#x76EE;&#x6807;&#x7C7B;&#x7684;attach()&#x65B9;&#x6CD5;&#x5C06;&#x81EA;&#x5DF1;&#x6DFB;&#x52A0;&#x5230;&#x76EE;&#x6807;&#x7C7B;&#x7684;&#x96C6;&#x5408;&#x4E2D;&#x6216;&#x901A;&#x8FC7;detach()&#x65B9;&#x6CD5;&#x5C06;&#x81EA;&#x5DF1;&#x4ECE;&#x76EE;&#x6807;&#x7C7B;&#x7684;&#x96C6;&#x5408;&#x4E2D;&#x5220;&#x9664;&#x3002;</p>
+</li>
+</ul>
+<p>&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x63CF;&#x8FF0;&#x4E86;&#x5982;&#x4F55;&#x5EFA;&#x7ACB;&#x5BF9;&#x8C61;&#x4E0E;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x6784;&#x9020;&#x6EE1;&#x8DB3;&#x8FD9;&#x79CD;&#x9700;&#x6C42;&#x7684;&#x7CFB;&#x7EDF;&#x3002;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x5305;&#x542B;&#x89C2;&#x5BDF;&#x76EE;&#x6807;&#x548C;&#x89C2;&#x5BDF;&#x8005;&#x4E24;&#x7C7B;&#x5BF9;&#x8C61;&#xFF0C;&#x4E00;&#x4E2A;&#x76EE;&#x6807;&#x53EF;&#x4EE5;&#x6709;&#x4EFB;&#x610F;&#x6570;&#x76EE;&#x7684;&#x4E0E;&#x4E4B;&#x76F8;&#x4F9D;&#x8D56;&#x7684;&#x89C2;&#x5BDF;&#x8005;&#xFF0C;&#x4E00;&#x65E6;&#x89C2;&#x5BDF;&#x76EE;&#x6807;&#x7684;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x89C2;&#x5BDF;&#x8005;&#x90FD;&#x5C06;&#x5F97;&#x5230;&#x901A;&#x77E5;&#x3002;&#x4F5C;&#x4E3A;&#x5BF9;&#x8FD9;&#x4E2A;&#x901A;&#x77E5;&#x7684;&#x54CD;&#x5E94;&#xFF0C;&#x6BCF;&#x4E2A;&#x89C2;&#x5BDF;&#x8005;&#x90FD;&#x5C06;&#x76D1;&#x89C6;&#x89C2;&#x5BDF;&#x76EE;&#x6807;&#x7684;&#x72B6;&#x6001;&#x4EE5;&#x4F7F;&#x5176;&#x72B6;&#x6001;&#x4E0E;&#x76EE;&#x6807;&#x72B6;&#x6001;&#x540C;&#x6B65;&#xFF0C;&#x8FD9;&#x79CD;&#x4EA4;&#x4E92;&#x4E5F;&#x79F0;&#x4E3A;&#x53D1;&#x5E03;-&#x8BA2;&#x9605;(Publish-Subscribe)&#x3002;&#x89C2;&#x5BDF;&#x76EE;&#x6807;&#x662F;&#x901A;&#x77E5;&#x7684;&#x53D1;&#x5E03;&#x8005;&#xFF0C;&#x5B83;&#x53D1;&#x51FA;&#x901A;&#x77E5;&#x65F6;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x77E5;&#x9053;&#x8C01;&#x662F;&#x5B83;&#x7684;&#x89C2;&#x5BDF;&#x8005;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x4EFB;&#x610F;&#x6570;&#x76EE;&#x7684;&#x89C2;&#x5BDF;&#x8005;&#x8BA2;&#x9605;&#x5B83;&#x5E76;&#x63A5;&#x6536;&#x901A;&#x77E5;&#x3002;</p>
+<pre><code>&#x9664;&#x4E3E;&#x4F8B;&#x90E8;&#x5206;&#x662F;&#x81EA;&#x5DF1;&#x7684;&#x89C1;&#x89E3;&#xFF0C;&#x4E0A;&#x9762;&#x6982;&#x8FF0;&#x90E8;&#x5206;&#x5F15;&#x7528;&#x81EA;&#x4E0B;&#x9762;&#x7684;&#x4F5C;&#x8005;
+&#x4F5C;&#x8005;&#xFF1A;Liuwei-Sunny 
+&#x6765;&#x6E90;&#xFF1A;CSDN 
+&#x539F;&#x6587;&#xFF1A;https://blog.csdn.net/LoveLion/article/details/7720382
+</code></pre><h4 id="&#x770B;&#x770B;es6&#x90E8;&#x5206;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x89C2;&#x5BDF;&#x8FD9;&#x6A21;&#x5F0F;">&#x770B;&#x770B;ES6&#x90E8;&#x5206;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x89C2;&#x5BDF;&#x8FD9;&#x6A21;&#x5F0F;</h4>
+<p>&#x4E0B;&#x9762;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x7684;&#x53D1;&#x5E03;&#x548C;&#x8BA2;&#x9605;&#x7684;&#x8FC7;&#x7A0B;:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// observer-pattern.js</span>
+<span class="hljs-comment">/*
+ * @Author: zx 
+ * @Date: 2019-04-27 10:04:16 
+ * @Last Modified by: zx
+ * @Last Modified time: 2019-04-27 10:08:16
+ */</span>
+<span class="hljs-comment">// &#x601D;&#x8DEF;&#x5C31;&#x662F;&#x6309;&#x7167;&#x8BA2;&#x9605;&#x8005;&#x6309;&#x7167;&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;&#x5728;&#x53D1;&#x5E03;&#x8005;&#x4E2D;&#x6CE8;&#x518C;&#xFF0C;&#x76F8;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x63A8;&#x5230;&#x53D1;&#x5E03;&#x8005;&#x5206;&#x914D;&#x7684;&#x6570;&#x7EC4;&#x91CC;&#x9762;&#xFF0C;&#x5F53;&#x53D1;&#x5E03;&#x8005;&#x53D1;&#x5E03;&#x6D88;&#x606F;&#x662F;&#xFF0C;&#x53D1;&#x5E03;&#x8005;&#x6570;&#x7EC4;&#x7684;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4F1A;&#x89E6;&#x53D1;&#xFF0C;&#x8BA2;&#x9605;&#x8005;&#x5C31;&#x4F1A;&#x968F;&#x4E4B;&#x6539;&#x53D8;&#x3002;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PubSub</span> </span>{
+    <span class="hljs-keyword">constructor</span>() {
+        <span class="hljs-comment">// &#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x96C6;&#x5408;</span>
+        <span class="hljs-keyword">this</span>.handles = {};
+    }
+
+    <span class="hljs-comment">// &#x8BA2;&#x9605;&#x6A21;&#x5F0F;</span>
+    on(eventType, handle) {
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.handles.hasOwnProperty(eventType)) {
+            <span class="hljs-keyword">this</span>.handles[eventType] = [];
+        }
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> handle === <span class="hljs-string">&apos;function&apos;</span>) {
+            <span class="hljs-keyword">this</span>.handles[eventType].push(handle);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x4E0D;&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&apos;</span>);
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>; <span class="hljs-comment">// &#x5B9E;&#x73B0;&#x94FE;&#x5F0F;&#x64CD;&#x4F5C;</span>
+    }
+
+    <span class="hljs-comment">// &#x53D1;&#x5E03;&#x4E8B;&#x4EF6;</span>
+    emit(eventType, ...args){
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.handles.hasOwnProperty(eventType)) {
+            <span class="hljs-keyword">this</span>.handles[eventType].forEach((item, index, arr) =&gt; {
+                item.apply(<span class="hljs-literal">null</span>, args);
+            });
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&quot;${eventType}&quot;&#x4E8B;&#x4EF6;&#x672A;&#x6CE8;&#x518C;&apos;</span>);
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>; <span class="hljs-comment">// &#x5B9E;&#x73B0;&#x94FE;&#x5F0F;&#x64CD;&#x4F5C;</span>
+    }
+
+    <span class="hljs-comment">// &#x5220;&#x9664;&#x4E8B;&#x4EF6;</span>
+    off(eventType, handle){
+        <span class="hljs-built_in">console</span>.log()
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.handles.hasOwnProperty(eventType)){
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&quot;${eventType}&quot;&#x4E8B;&#x4EF6;&#x672A;&#x6CE8;&#x518C;&apos;</span>);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> handle !== <span class="hljs-string">&apos;function&apos;</span>){
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x4E0D;&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&apos;</span>);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>.handles[eventType].forEach((item, index, arr) =&gt; {
+                <span class="hljs-keyword">if</span> (item === handle) arr.splice(index, <span class="hljs-number">1</span>);
+            });
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>; <span class="hljs-comment">// &#x5B9E;&#x73B0;&#x94FE;&#x5F0F;&#x64CD;&#x4F5C;</span>
+    }
+}
+
+<span class="hljs-keyword">let</span> callback = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;you are so nice&apos;</span>);
+};
+<span class="hljs-keyword">let</span> pubSub = <span class="hljs-keyword">new</span> PubSub();
+
+pubSub.on(<span class="hljs-string">&apos;completed&apos;</span>, (...args)=&gt;{
+    <span class="hljs-built_in">console</span>.log(args.join(<span class="hljs-string">&apos; &apos;</span>));
+}).on(<span class="hljs-string">&apos;completed&apos;</span>, callback);
+
+pubSub.emit(<span class="hljs-string">&apos;completed&apos;</span>, <span class="hljs-string">&apos;Are&apos;</span>, <span class="hljs-string">&apos;you&apos;</span>, <span class="hljs-string">&apos;ok!&apos;</span>);
+pubSub.off(<span class="hljs-string">&apos;completed&apos;</span>, callback);
+pubSub.emit(<span class="hljs-string">&apos;completed&apos;</span>, <span class="hljs-string">&apos;Hello,&apos;</span>, <span class="hljs-string">&apos;Mi&apos;</span>, <span class="hljs-string">&apos;fans&apos;</span>);
+</code></pre>
+<p>&#x901A;&#x8FC7;node.js&#x8FD0;&#x884C;&#x6B64;&#x811A;&#x672C;,&#x9700;&#x8981;&#x5B89;&#x88C5;node.js&#x73AF;&#x5883;:</p>
+<pre><code class="lang-shell">$ node observer-pattern.js
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-txt">Are you ok!
+you are so nice
+
+Hello, Mi fans
+</code></pre>
+<p>&#x5728;&#x5B9E;&#x9645;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x6BD4;&#x5982;&#x73B0;&#x5728;&#x6B63;&#x5728;&#x505A;&#x7684;&#x5C0F;&#x6E38;&#x620F;&#x4E2D;&#x7684;&#x6D88;&#x606F;&#x5C31;&#x7528;&#x5230;&#x4E86;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#xFF0C;&#x670D;&#x52A1;&#x63A8;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x6240;&#x6709;UI&#x7684;&#x6570;&#x636E;&#x5C31;&#x4F1A;&#x76F8;&#x5E94;&#x7684;&#x53D8;&#x5316;&#x548C;&#x66F4;&#x65B0;&#xFF0C;&#x8FD9;&#x91CC;&#x670D;&#x52A1;&#x5668;&#x63A8;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;&#x76F8;&#x5F53;&#x4E8E;&#x53D1;&#x5E03;&#x8005;&#xFF08;&#x88AB;&#x89C2;&#x5BDF;&#x8005;&#xFF09;&#xFF0C;UI&#x76F8;&#x5F53;&#x4E8E;&#x8BA2;&#x9605;&#x8005;&#xFF08;&#x89C2;&#x5BDF;&#x8005;&#xFF09;&#xFF0C;UI&#x6309;&#x7167;&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x6CE8;&#x518C;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x6309;&#x7167;&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x901A;&#x77E5;&#xFF0C;UI&#x5728;&#x4ED6;&#x4EEC;&#x7684;&#x901A;&#x77E5;&#x540E;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x66F4;&#x65B0;&#xFF0C;UI&#x5728;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x5C06;&#x53D6;&#x6D88;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6CE8;&#x518C;&#x3002;&#x8FD9;&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x5176;&#x5B9E;&#x5C31;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5176;&#x5B9E;&#x53EB;&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x6A21;&#x5F0F;&#x66F4;&#x597D;&#x7406;&#x89E3;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="设计模式2-工厂模式.html" class="navigation navigation-prev " aria-label="Previous page: 设计模式2-工厂模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="设计模式4-建造者模式.html" class="navigation navigation-next " aria-label="Next page: 设计模式4-建造者者模式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"设计模式3-观察者模式","level":"1.2.3","depth":2,"next":{"title":"设计模式4-建造者者模式","level":"1.2.4","depth":2,"path":"notes/设计模式4-建造者模式.md","ref":"notes/设计模式4-建造者模式.md","articles":[]},"previous":{"title":"设计模式2-工厂模式","level":"1.2.2","depth":2,"path":"notes/设计模式2-工厂模式.md","ref":"notes/设计模式2-工厂模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","edit-link","search-pro","emphasize","toggle-chapters","katex","mermaid-gb3","advanced-emoji","include-codeblock","livereload"],"styles":{"website":"styles/website.css","ebook":"styles/ebook.css","pdf":"styles/pdf.css","mobi":"styles/mobi.css","epub":"styles/epub.css"},"pluginsConfig":{"emphasize":{},"livereload":{},"splitter":{},"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/zxgzlx/blog"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"ZX","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习记录","language":"zh-hans","gitbook":"3.2.3","description":"记录工作，记录生活，记录人生"},"file":{"path":"notes/设计模式3-观察者模式.md","mtime":"2019-04-27T09:37:51.770Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-28T15:56:51.782Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+

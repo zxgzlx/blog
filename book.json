@@ -12,7 +12,7 @@
     "epub": "styles/epub.css"
  },
   "plugins": [ 
-    "splitter",
+        "splitter",
 	"edit-link",
 	"search-pro",
 	"emphasize",

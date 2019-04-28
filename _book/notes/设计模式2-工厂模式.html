@@ -1,0 +1,679 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>设计模式2-工厂模式 · 学习记录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ZX">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="设计模式3-观察者模式.html" />
+    
+    
+    <link rel="prev" href="js设计模式-单例.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="js设计模式-单例.html">
+            
+                <a href="js设计模式-单例.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="js设计模式-单例.html">
+            
+                <a href="js设计模式-单例.html">
+            
+                    
+                    设计模式1-单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="设计模式2-工厂模式.html">
+            
+                <a href="设计模式2-工厂模式.html">
+            
+                    
+                    设计模式2-工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="设计模式3-观察者模式.html">
+            
+                <a href="设计模式3-观察者模式.html">
+            
+                    
+                    设计模式3-观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="设计模式4-建造者模式.html">
+            
+                <a href="设计模式4-建造者模式.html">
+            
+                    
+                    设计模式4-建造者者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >设计模式2-工厂模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;2-&#x5DE5;&#x5382;&#x6A21;&#x5F0F;">&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;2-&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</h3>
+<h4 id="&#x4EC0;&#x4E48;&#x662F;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;">&#x4EC0;&#x4E48;&#x662F;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</h4>
+<blockquote>
+<p>&#x4E0D;&#x66B4;&#x9732;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x5177;&#x4F53;&#x903B;&#x8F91;&#xFF0C;&#x800C;&#x662F;&#x5C06;&#x903B;&#x8F91;&#x5C01;&#x88C5;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x88AB;&#x89C6;&#x4E3A;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x3002;</p>
+</blockquote>
+<p><strong>&#x5206;&#x7C7B;</strong></p>
+<ol>
+<li>&#x7B80;&#x5355;&#x5DE5;&#x5382;</li>
+<li>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;</li>
+<li>&#x62BD;&#x8C61;&#x5DE5;&#x5382;</li>
+</ol>
+<p><strong>&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;</strong></p>
+<p>&#x5047;&#x5982;&#x4F60;&#x5F00;&#x4E00;&#x5BB6;&#x5546;&#x5E97;&#xFF0C;&#x8981;&#x53BB;&#x5DE5;&#x5382;&#x8BA2;&#x4E00;&#x6279;&#x8D27;&#xFF0C;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x751F;&#x4EA7;&#x8D27;&#xFF0C;&#x4F60;&#x53EA;&#x8981;&#x62FF;&#x5230;&#x4F60;&#x8BF4;&#x51FA;&#x8981;&#x7684;&#x8D27;&#xFF0C;&#x5DE5;&#x5382;&#x5C31;&#x80FD;&#x7ED9;&#x4F60;&#x4E86;&#x3002;&#x6240;&#x4EE5;&#x8BF4;&#x4F60;&#x8C03;&#x7528;&#x8D27;&#x7684;&#x65F6;&#x5019;&#x53EA;&#x8981;&#x8BF4;&#x51FA;&#x540D;&#x5B57;&#xFF0C;&#x5DE5;&#x5382;&#x5C31;&#x80FD;&#x7ED9;&#x4F60;&#x76F8;&#x5E94;&#x7684;&#x8D27;&#x3002;</p>
+<h4 id="&#x7B80;&#x5355;&#x5DE5;&#x5382;">&#x7B80;&#x5355;&#x5DE5;&#x5382;</h4>
+<blockquote>
+<p>&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x53C8;&#x53EB;&#x9759;&#x6001;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#xFF0C;&#x7531;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x5BF9;&#x8C61;&#x51B3;&#x5B9A;&#x521B;&#x5EFA;&#x67D0;&#x4E00;&#x79CD;&#x4EA7;&#x54C1;&#x5BF9;&#x8C61;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x540C;&#x4E00;&#x7C7B;&#x5BF9;&#x8C61;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> FruitFactory = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">fruit</span>)</span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Fruit</span>(<span class="hljs-params">fruitName</span>)</span>{
+    <span class="hljs-keyword">this</span>.name = fruitName;
+  }
+  <span class="hljs-keyword">switch</span>(fruit){
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;apple&apos;</span>:
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Fruit(<span class="hljs-string">&apos;&#x82F9;&#x679C;&apos;</span>);
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;banana&apos;</span>:
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Fruit(<span class="hljs-string">&apos;&#x9999;&#x8549;&apos;</span>);
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;orange&apos;</span>:
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Fruit(<span class="hljs-string">&apos;&#x6A58;&#x5B50;&apos;</span>);
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x53C2;&#x6570;&#x4E0D;&#x6B63;&#x786E;&apos;</span>);
+  }
+}
+
+<span class="hljs-comment">// &#x8C03;&#x7528;</span>
+<span class="hljs-keyword">let</span> apple = FruitFactory(<span class="hljs-string">&apos;apple&apos;</span>);
+<span class="hljs-keyword">let</span> banana = FruitFactory(<span class="hljs-string">&apos;banaba&apos;</span>);
+<span class="hljs-keyword">let</span> orange = FruitFactory(<span class="hljs-string">&apos;orange&apos;</span>);
+</code></pre>
+<h4 id="&#x5DE5;&#x5382;&#x6A21;&#x5F0F;">&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</h4>
+<blockquote>
+<p>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x7684;&#x672C;&#x610F;&#x662F;&#x5C06;&#x5B9E;&#x9645;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x5DE5;&#x4F5C;&#x63A8;&#x8FDF;&#x5230;&#x5B50;&#x7C7B;&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x6838;&#x5FC3;&#x7C7B;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x62BD;&#x8C61;&#x7C7B;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x521B;&#x5EFA;&#x7684;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x51FD;&#x6570;</span>
+<span class="hljs-keyword">let</span> FruitFactory = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">fruit</span>)</span>{
+  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span> <span class="hljs-keyword">instanceof</span> FruitFactory){
+    <span class="hljs-keyword">let</span> s = <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>[fruit]();
+    <span class="hljs-keyword">return</span> s;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> FruitFactory(fruit);
+  }
+}
+
+<span class="hljs-comment">// &#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x4E2D;&#x8BBE;&#x7F6E;&#x6240;&#x4EE5;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;</span>
+FruitFactory.prototype = {
+  Apple: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">&apos;&#x82F9;&#x679C;&apos;</span>
+  }
+  Banana: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      <span class="hljs-keyword">this</span>.name = <span class="hljs-string">&apos;&#x9999;&#x8549;&apos;</span>
+  }
+  Orange: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">&apos;&#x6A58;&#x5B50;&apos;</span>
+  }
+}
+
+<span class="hljs-comment">// &#x8C03;&#x7528;</span>
+<span class="hljs-keyword">let</span> apple = FruitFactory(<span class="hljs-string">&apos;Apple&apos;</span>);
+<span class="hljs-keyword">let</span> banana = FruitFactory(<span class="hljs-string">&apos;Banaba&apos;</span>);
+<span class="hljs-keyword">let</span> orange = FruitFactory(<span class="hljs-string">&apos;Orange&apos;</span>);
+</code></pre>
+<h4 id="&#x62BD;&#x8C61;&#x5DE5;&#x5382;">&#x62BD;&#x8C61;&#x5DE5;&#x5382;</h4>
+<blockquote>
+<p>&#x4E0A;&#x9762;&#x4ECB;&#x7ECD;&#x4E86;&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x548C;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x90FD;&#x662F;&#x76F4;&#x63A5;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#xFF0C;&#x4F46;&#x662F;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4E0D;&#x540C;&#xFF0C;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x5E76;&#x4E0D;&#x76F4;&#x63A5;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#xFF0C; &#x800C;&#x662F;&#x7528;&#x4E8E;&#x5BF9;&#x4EA7;&#x54C1;&#x7C7B;&#x7C07;&#x7684;&#x521B;&#x5EFA;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> AccountAbstractFactory = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">subType, superType</span>) </span>{
+  <span class="hljs-comment">//&#x5224;&#x65AD;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x8BE5;&#x62BD;&#x8C61;&#x7C7B;</span>
+  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> AccountAbstractFactory[superType] === <span class="hljs-string">&apos;function&apos;</span>) {
+    <span class="hljs-comment">//&#x7F13;&#x5B58;&#x7C7B;</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">F</span>(<span class="hljs-params"></span>) </span>{};
+    <span class="hljs-comment">//&#x7EE7;&#x627F;&#x7236;&#x7C7B;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;</span>
+    F.prototype = <span class="hljs-keyword">new</span> AccountAbstractFactory[superType] ();
+    <span class="hljs-comment">//&#x5C06;&#x5B50;&#x7C7B;&#x7684;constructor&#x6307;&#x5411;&#x5B50;&#x7C7B;</span>
+    subType.constructor = subType;
+    <span class="hljs-comment">//&#x5B50;&#x7C7B;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x7236;&#x7C7B;</span>
+    subType.prototype = <span class="hljs-keyword">new</span> F();
+
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x62BD;&#x8C61;&#x7C7B;&#x4E0D;&#x5B58;&#x5728;!&apos;</span>)
+  }
+}
+
+<span class="hljs-comment">//&#x5FAE;&#x4FE1;&#x7528;&#x6237;&#x62BD;&#x8C61;&#x7C7B;</span>
+AccountAbstractFactory.WechatUser = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.type = <span class="hljs-string">&apos;wechat&apos;</span>;
+}
+AccountAbstractFactory.WechatUser.prototype = {
+  getName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x4E0D;&#x80FD;&#x8C03;&#x7528;&apos;</span>);
+  }
+}
+
+<span class="hljs-comment">//qq&#x7528;&#x6237;&#x62BD;&#x8C61;&#x7C7B;</span>
+AccountAbstractFactory.QqUser = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.type = <span class="hljs-string">&apos;qq&apos;</span>;
+}
+AccountAbstractFactory.QqUser.prototype = {
+  getName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x4E0D;&#x80FD;&#x8C03;&#x7528;&apos;</span>);
+  }
+}
+
+<span class="hljs-comment">//&#x65B0;&#x6D6A;&#x5FAE;&#x535A;&#x7528;&#x6237;&#x62BD;&#x8C61;&#x7C7B;</span>
+AccountAbstractFactory.WeiboUser = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.type = <span class="hljs-string">&apos;weibo&apos;</span>;
+}
+AccountAbstractFactory.WeiboUser.prototype = {
+  getName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x4E0D;&#x80FD;&#x8C03;&#x7528;&apos;</span>);
+  }
+}
+
+
+<span class="hljs-comment">// &#x5B9A;&#x4E49;&#x666E;&#x901A;&#x7528;&#x6237;&#x7684;&#x5B50;&#x7C7B;</span>
+<span class="hljs-comment">//&#x666E;&#x901A;&#x5FAE;&#x4FE1;&#x7528;&#x6237;&#x5B50;&#x7C7B;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">UserOfWechat</span>(<span class="hljs-params">name</span>) </span>{
+  <span class="hljs-keyword">this</span>.name = name;
+  <span class="hljs-keyword">this</span>.viewPage = [<span class="hljs-string">&apos;&#x9996;&#x9875;&apos;</span>, <span class="hljs-string">&apos;&#x901A;&#x8BAF;&#x5F55;&apos;</span>, <span class="hljs-string">&apos;&#x53D1;&#x73B0;&#x9875;&apos;</span>]
+}
+<span class="hljs-comment">//&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x5B9E;&#x73B0;WechatUser&#x7C7B;&#x7684;&#x7EE7;&#x627F;</span>
+AccountAbstractFactory(UserOfWechat, <span class="hljs-string">&apos;WechatUser&apos;</span>);
+<span class="hljs-comment">//&#x5B50;&#x7C7B;&#x4E2D;&#x91CD;&#x5199;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;</span>
+UserOfWechat.prototype.getName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name;
+}
+
+<span class="hljs-comment">//&#x666E;&#x901A;qq&#x7528;&#x6237;&#x5B50;&#x7C7B;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">UserOfQq</span>(<span class="hljs-params">name</span>) </span>{
+  <span class="hljs-keyword">this</span>.name = name;
+  <span class="hljs-keyword">this</span>.viewPage = [<span class="hljs-string">&apos;&#x9996;&#x9875;&apos;</span>, <span class="hljs-string">&apos;&#x901A;&#x8BAF;&#x5F55;&apos;</span>, <span class="hljs-string">&apos;&#x53D1;&#x73B0;&#x9875;&apos;</span>]
+}
+<span class="hljs-comment">//&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x5B9E;&#x73B0;QqUser&#x7C7B;&#x7684;&#x7EE7;&#x627F;</span>
+AccountAbstractFactory(UserOfQq, <span class="hljs-string">&apos;QqUser&apos;</span>);
+<span class="hljs-comment">//&#x5B50;&#x7C7B;&#x4E2D;&#x91CD;&#x5199;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;</span>
+UserOfQq.prototype.getName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name;
+}
+
+<span class="hljs-comment">//&#x666E;&#x901A;&#x5FAE;&#x535A;&#x7528;&#x6237;&#x5B50;&#x7C7B;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">UserOfWeibo</span>(<span class="hljs-params">name</span>) </span>{
+  <span class="hljs-keyword">this</span>.name = name;
+  <span class="hljs-keyword">this</span>.viewPage = [<span class="hljs-string">&apos;&#x9996;&#x9875;&apos;</span>, <span class="hljs-string">&apos;&#x901A;&#x8BAF;&#x5F55;&apos;</span>, <span class="hljs-string">&apos;&#x53D1;&#x73B0;&#x9875;&apos;</span>]
+}
+<span class="hljs-comment">//&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x5B9E;&#x73B0;WeiboUser&#x7C7B;&#x7684;&#x7EE7;&#x627F;</span>
+AccountAbstractFactory(UserOfWeibo, <span class="hljs-string">&apos;WeiboUser&apos;</span>);
+<span class="hljs-comment">//&#x5B50;&#x7C7B;&#x4E2D;&#x91CD;&#x5199;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;</span>
+UserOfWeibo.prototype.getName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name;
+}
+
+<span class="hljs-comment">//&#x5B9E;&#x4F8B;&#x5316;&#x5FAE;&#x4FE1;&#x7528;&#x6237;</span>
+<span class="hljs-keyword">let</span> wechatUserA = <span class="hljs-keyword">new</span> UserOfWechat(<span class="hljs-string">&apos;&#x5FAE;&#x4FE1;&#x5C0F;&#x674E;&apos;</span>);
+<span class="hljs-built_in">console</span>.log(wechatUserA.getName(), wechatUserA.type); <span class="hljs-comment">//&#x5FAE;&#x4FE1;&#x5C0F;&#x674E; wechat</span>
+<span class="hljs-keyword">let</span> wechatUserB = <span class="hljs-keyword">new</span> UserOfWechat(<span class="hljs-string">&apos;&#x5FAE;&#x4FE1;&#x5C0F;&#x738B;&apos;</span>);
+<span class="hljs-built_in">console</span>.log(wechatUserB.getName(), wechatUserB.type); <span class="hljs-comment">//&#x5FAE;&#x4FE1;&#x5C0F;&#x738B; wechat</span>
+
+<span class="hljs-comment">//&#x5B9E;&#x4F8B;&#x5316;qq&#x7528;&#x6237;</span>
+<span class="hljs-keyword">let</span> qqUserA = <span class="hljs-keyword">new</span> UserOfQq(<span class="hljs-string">&apos;QQ&#x5C0F;&#x674E;&apos;</span>);
+<span class="hljs-built_in">console</span>.log(qqUserA.getName(), qqUserA.type); <span class="hljs-comment">//QQ&#x5C0F;&#x674E; qq</span>
+<span class="hljs-keyword">let</span> qqUserB = <span class="hljs-keyword">new</span> UserOfQq(<span class="hljs-string">&apos;QQ&#x5C0F;&#x738B;&apos;</span>);
+<span class="hljs-built_in">console</span>.log(qqUserB.getName(), qqUserB.type); <span class="hljs-comment">//QQ&#x5C0F;&#x738B; qq</span>
+
+<span class="hljs-comment">//&#x5B9E;&#x4F8B;&#x5316;&#x5FAE;&#x535A;&#x7528;&#x6237;</span>
+<span class="hljs-keyword">let</span> weiboUserA =<span class="hljs-keyword">new</span> UserOfWeibo(<span class="hljs-string">&apos;&#x5FAE;&#x535A;&#x5C0F;&#x674E;&apos;</span>);
+<span class="hljs-built_in">console</span>.log(weiboUserA.getName(), weiboUserA.type); <span class="hljs-comment">//&#x5FAE;&#x535A;&#x5C0F;&#x674E; weibo</span>
+<span class="hljs-keyword">let</span> weiboUserB =<span class="hljs-keyword">new</span> UserOfWeibo(<span class="hljs-string">&apos;&#x5FAE;&#x535A;&#x5C0F;&#x738B;&apos;</span>);
+<span class="hljs-built_in">console</span>.log(weiboUserB.getName(), weiboUserB.type); <span class="hljs-comment">//&#x5FAE;&#x535A;&#x5C0F;&#x738B; weibo</span>
+</code></pre>
+<h3 id="es6&#x4E2D;&#x7684;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;">ES6&#x4E2D;&#x7684;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</h3>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x91CD;&#x5199;&#x7B80;&#x5355;&#x5DE5;&#x5382;</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fruit</span></span>{
+  <span class="hljs-keyword">constructor</span>(fruitName){
+    <span class="hljs-keyword">this</span>.name = fruitName;
+  }
+
+  <span class="hljs-comment">// &#x9759;&#x6001;&#x65B9;&#x6CD5;</span>
+  <span class="hljs-keyword">static</span> getInstance(fruit){
+    <span class="hljs-keyword">switch</span>(fruit){
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;apple&apos;</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Fruit(<span class="hljs-string">&apos;apple&apos;</span>);
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;banana&apos;</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Fruit(<span class="hljs-string">&apos;banana&apos;</span>);
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;orange&apos;</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Fruit(<span class="hljs-string">&apos;orange&apos;</span>);
+      <span class="hljs-keyword">default</span>: 
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x53C2;&#x6570;&#x9519;&#x8BEF;&apos;</span>);
+    }
+  }
+}
+
+<span class="hljs-comment">//&#x8C03;&#x7528;</span>
+<span class="hljs-keyword">let</span> apple = User.getInstance(<span class="hljs-string">&apos;apple&apos;</span>);
+<span class="hljs-keyword">let</span> banana = User.getInstance(<span class="hljs-string">&apos;banana&apos;</span>);
+<span class="hljs-keyword">let</span> orange = User.getInstance(<span class="hljs-string">&apos;orange&apos;</span>);
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x91CD;&#x5199;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fruit</span></span>{
+  constuctor(name){
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">new</span>.target === Fruit){
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x62BD;&#x8C61;&#x7C7B;&#x4E0D;&#x80FD;&#x5B9E;&#x4F8B;&#x5316;&apos;</span>);
+    }
+    <span class="hljs-keyword">this</span>.name = name;
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FruitFactory</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fruit</span></span>{
+  <span class="hljs-keyword">constructor</span>(name){
+    <span class="hljs-keyword">super</span>(name);
+  }
+  create(fruit){
+    <span class="hljs-keyword">switch</span>(fruit){
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;apple&apos;</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> FruitFactory(<span class="hljs-string">&apos;apple&apos;</span>);
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;banana&apos;</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> FruitFactory(<span class="hljs-string">&apos;banana&apos;</span>);
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;orange&apos;</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> FruitFactory(<span class="hljs-string">&apos;orange&apos;</span>);
+      <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x53C2;&#x6570;&#x9519;&#x8BEF;&apos;</span>);
+    }
+  }
+}
+
+<span class="hljs-comment">// &#x8C03;&#x7528;</span>
+<span class="hljs-keyword">let</span> fruitFactory = <span class="hljs-keyword">new</span> FruitFactory();
+<span class="hljs-keyword">let</span> apple = fruitFactory.create(<span class="hljs-string">&apos;apple&apos;</span>);
+<span class="hljs-keyword">let</span> banana = fruitFactory.create(<span class="hljs-string">&apos;banana&apos;</span>);
+<span class="hljs-keyword">let</span> orange = fruitFactory.create(<span class="hljs-string">&apos;orange&apos;</span>);
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x91CD;&#x5199;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>{
+  <span class="hljs-keyword">constructor</span>(type) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">new</span>.target === User) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x62BD;&#x8C61;&#x7C7B;&#x4E0D;&#x80FD;&#x5B9E;&#x4F8B;&#x5316;!&apos;</span>)
+    }
+    <span class="hljs-keyword">this</span>.type = type;
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserOfWechat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">User</span> </span>{
+  <span class="hljs-keyword">constructor</span>(name) {
+    <span class="hljs-keyword">super</span>(<span class="hljs-string">&apos;wechat&apos;</span>);
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.viewPage = [<span class="hljs-string">&apos;&#x9996;&#x9875;&apos;</span>, <span class="hljs-string">&apos;&#x901A;&#x8BAF;&#x5F55;&apos;</span>, <span class="hljs-string">&apos;&#x53D1;&#x73B0;&#x9875;&apos;</span>]
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserOfQq</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">User</span> </span>{
+  <span class="hljs-keyword">constructor</span>(name) {
+    <span class="hljs-keyword">super</span>(<span class="hljs-string">&apos;qq&apos;</span>);
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.viewPage = [<span class="hljs-string">&apos;&#x9996;&#x9875;&apos;</span>, <span class="hljs-string">&apos;&#x901A;&#x8BAF;&#x5F55;&apos;</span>, <span class="hljs-string">&apos;&#x53D1;&#x73B0;&#x9875;&apos;</span>]
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserOfWeibo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">User</span> </span>{
+  <span class="hljs-keyword">constructor</span>(name) {
+    <span class="hljs-keyword">super</span>(<span class="hljs-string">&apos;weibo&apos;</span>);
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.viewPage = [<span class="hljs-string">&apos;&#x9996;&#x9875;&apos;</span>, <span class="hljs-string">&apos;&#x901A;&#x8BAF;&#x5F55;&apos;</span>, <span class="hljs-string">&apos;&#x53D1;&#x73B0;&#x9875;&apos;</span>]
+  }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAbstractUserFactory</span>(<span class="hljs-params">type</span>) </span>{
+  <span class="hljs-keyword">switch</span> (type) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;wechat&apos;</span>:
+      <span class="hljs-keyword">return</span> UserOfWechat;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;qq&apos;</span>:
+      <span class="hljs-keyword">return</span> UserOfQq;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;weibo&apos;</span>:
+      <span class="hljs-keyword">return</span> UserOfWeibo;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;&#x53C2;&#x6570;&#x9519;&#x8BEF;, &#x53EF;&#x9009;&#x53C2;&#x6570;:superAdmin&#x3001;admin&#x3001;user&apos;</span>)
+  }
+}
+
+<span class="hljs-keyword">let</span> WechatUserClass = getAbstractUserFactory(<span class="hljs-string">&apos;wechat&apos;</span>);
+<span class="hljs-keyword">let</span> QqUserClass = getAbstractUserFactory(<span class="hljs-string">&apos;qq&apos;</span>);
+<span class="hljs-keyword">let</span> WeiboUserClass = getAbstractUserFactory(<span class="hljs-string">&apos;weibo&apos;</span>);
+
+<span class="hljs-keyword">let</span> wechatUser = <span class="hljs-keyword">new</span> WechatUserClass(<span class="hljs-string">&apos;&#x5FAE;&#x4FE1;&#x5C0F;&#x674E;&apos;</span>);
+<span class="hljs-keyword">let</span> qqUser = <span class="hljs-keyword">new</span> QqUserClass(<span class="hljs-string">&apos;QQ&#x5C0F;&#x674E;&apos;</span>);
+<span class="hljs-keyword">let</span> weiboUser = <span class="hljs-keyword">new</span> WeiboUserClass(<span class="hljs-string">&apos;&#x5FAE;&#x535A;&#x5C0F;&#x674E;&apos;</span>);
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="js设计模式-单例.html" class="navigation navigation-prev " aria-label="Previous page: 设计模式1-单例模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="设计模式3-观察者模式.html" class="navigation navigation-next " aria-label="Next page: 设计模式3-观察者模式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"设计模式2-工厂模式","level":"1.2.2","depth":2,"next":{"title":"设计模式3-观察者模式","level":"1.2.3","depth":2,"path":"notes/设计模式3-观察者模式.md","ref":"notes/设计模式3-观察者模式.md","articles":[]},"previous":{"title":"设计模式1-单例模式","level":"1.2.1","depth":2,"path":"notes/js设计模式-单例.md","ref":"notes/js设计模式-单例.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","edit-link","search-pro","emphasize","toggle-chapters","katex","mermaid-gb3","advanced-emoji","include-codeblock","livereload"],"styles":{"website":"styles/website.css","ebook":"styles/ebook.css","pdf":"styles/pdf.css","mobi":"styles/mobi.css","epub":"styles/epub.css"},"pluginsConfig":{"emphasize":{},"livereload":{},"splitter":{},"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/zxgzlx/blog"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"ZX","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习记录","language":"zh-hans","gitbook":"3.2.3","description":"记录工作，记录生活，记录人生"},"file":{"path":"notes/设计模式2-工厂模式.md","mtime":"2019-04-14T15:40:33.646Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-28T15:56:51.782Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
