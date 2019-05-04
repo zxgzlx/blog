@@ -7,15 +7,16 @@
 ## 目录
 - 互联网学习
   - JS相关知识
-    1. [js闭包相关知识](https://github.com/zxgzlx/StudyNotes/issues/1)
-    2. [js中this相关知识](https://github.com/zxgzlx/StudyNotes/issues/2)
-    3. [TypeScript基础语法](https://github.com/zxgzlx/blog/issues/8)
+    * [js闭包相关知识](https://github.com/zxgzlx/StudyNotes/issues/1)
+    * [js中this相关知识](https://github.com/zxgzlx/StudyNotes/issues/2)
+    * [TypeScript基础语法](https://github.com/zxgzlx/blog/issues/8)
   - 游戏开发相关知识
-    1. [Cocos v2.0.9新API 缓动系统 cc.tween 了解](https://github.com/zxgzlx/blog/issues/5)
+    * [Cocos v2.0.9新API 缓动系统 cc.tween 了解](https://github.com/zxgzlx/blog/issues/5)
   - 设计模式
-    1. [设计模式1-单例模式](https://github.com/zxgzlx/blog/issues/6)
-    2. [设计模式2-工厂模式](https://github.com/zxgzlx/blog/issues/7)
-    3. [设计模式3-观察者模式](https://github.com/zxgzlx/blog/issues/9)
+    * [设计模式1-单例模式](https://github.com/zxgzlx/blog/issues/6)
+    * [设计模式2-工厂模式](https://github.com/zxgzlx/blog/issues/7)
+    * [设计模式3-观察者模式](https://github.com/zxgzlx/blog/issues/9)
+    * [设计模式3-建造者模式](https://github.com/zxgzlx/blog/issues/10)
   - Python相关知识
   - Java相关知识
   - 移动开发相关知识
