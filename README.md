@@ -16,13 +16,13 @@
     * [设计模式1-单例模式](https://github.com/zxgzlx/blog/issues/6)
     * [设计模式2-工厂模式](https://github.com/zxgzlx/blog/issues/7)
     * [设计模式3-观察者模式](https://github.com/zxgzlx/blog/issues/9)
-    * [设计模式3-建造者模式](https://github.com/zxgzlx/blog/issues/10)
+    * [设计模式4-建造者模式](https://github.com/zxgzlx/blog/issues/10)
   - Python相关知识
   - Java相关知识
   - 移动开发相关知识
   - 其他
-    1. [VPS搭建](https://github.com/zxgzlx/blog/issues/3)
-    2. [Markdown 常用语法](https://github.com/zxgzlx/blog/issues/4)
+    * [VPS搭建](https://github.com/zxgzlx/blog/issues/3)
+    * [Markdown 常用语法](https://github.com/zxgzlx/blog/issues/4)
 - 电影
   - 电影推荐
   - 电影影评
