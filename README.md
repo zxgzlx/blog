@@ -17,6 +17,7 @@
     * [设计模式2-工厂模式](https://github.com/zxgzlx/blog/issues/7)
     * [设计模式3-观察者模式](https://github.com/zxgzlx/blog/issues/9)
     * [设计模式4-建造者模式](https://github.com/zxgzlx/blog/issues/10)
+    * [设计模式5-代理模式](https://github.com/zxgzlx/blog/issues/11)
   - Python相关知识
   - Java相关知识
   - 移动开发相关知识
