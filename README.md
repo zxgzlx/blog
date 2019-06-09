@@ -25,6 +25,7 @@
   - 移动开发相关知识
   - 算法和数据结构
     * [js数据结构和算法--数组](https://github.com/zxgzlx/blog/issues/14)
+    * [js数据结构与算法--栈](https://github.com/zxgzlx/blog/issues/15)
   - 其他
     * [VPS搭建](https://github.com/zxgzlx/blog/issues/3)
     * [Markdown 常用语法](https://github.com/zxgzlx/blog/issues/4)
