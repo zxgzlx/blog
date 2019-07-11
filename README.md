@@ -29,6 +29,7 @@
     * [js数据结构与算法--队列和双端队列](https://github.com/zxgzlx/blog/issues/16)
     * [js数据结构与算法--链表](https://github.com/zxgzlx/blog/issues/17)
     * [js数据结构与算法--链表（二）](https://github.com/zxgzlx/blog/issues/18)
+    * [js数据结构与算法--树（一）](https://github.com/zxgzlx/blog/issues/19)
   - 其他
     * [VPS搭建](https://github.com/zxgzlx/blog/issues/3)
     * [Markdown 常用语法](https://github.com/zxgzlx/blog/issues/4)
