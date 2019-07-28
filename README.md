@@ -23,6 +23,7 @@
   - Python相关知识
   - Java相关知识
   - 移动开发相关知识
+    * [跨平台移动框架介绍](https://github.com/zxgzlx/blog/issues/20)
   - 算法和数据结构
     * [js数据结构和算法--数组](https://github.com/zxgzlx/blog/issues/14)
     * [js数据结构与算法--栈](https://github.com/zxgzlx/blog/issues/15)
@@ -30,6 +31,7 @@
     * [js数据结构与算法--链表](https://github.com/zxgzlx/blog/issues/17)
     * [js数据结构与算法--链表（二）](https://github.com/zxgzlx/blog/issues/18)
     * [js数据结构与算法--树（一）](https://github.com/zxgzlx/blog/issues/19)
+    * [js数据结构与算法--排序算法（一）](https://github.com/zxgzlx/blog/issues/21)
   - 其他
     * [VPS搭建](https://github.com/zxgzlx/blog/issues/3)
     * [Markdown 常用语法](https://github.com/zxgzlx/blog/issues/4)
