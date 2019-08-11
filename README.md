@@ -14,6 +14,7 @@
   - 游戏开发相关知识
     * [Cocos v2.0.9新API 缓动系统 cc.tween 了解](https://github.com/zxgzlx/blog/issues/5)
   - 设计模式
+    * [设计模式-概况kotlin实现](https://github.com/zxgzlx/blog/issues/23)
     * [设计模式1-单例模式](https://github.com/zxgzlx/blog/issues/6)
     * [设计模式2-工厂模式](https://github.com/zxgzlx/blog/issues/7)
     * [设计模式3-观察者模式](https://github.com/zxgzlx/blog/issues/9)
@@ -32,6 +33,7 @@
     * [js数据结构与算法--链表（二）](https://github.com/zxgzlx/blog/issues/18)
     * [js数据结构与算法--树（一）](https://github.com/zxgzlx/blog/issues/19)
     * [js数据结构与算法--排序算法（一）](https://github.com/zxgzlx/blog/issues/21)
+    * [js数据结构与算法--搜索算法](https://github.com/zxgzlx/blog/issues/22)
   - 其他
     * [VPS搭建](https://github.com/zxgzlx/blog/issues/3)
     * [Markdown 常用语法](https://github.com/zxgzlx/blog/issues/4)
