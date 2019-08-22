@@ -21,6 +21,7 @@
     * [设计模式4-建造者模式](https://github.com/zxgzlx/blog/issues/10)
     * [设计模式5-代理模式](https://github.com/zxgzlx/blog/issues/11)
     * [设计模式6-策略模式](https://github.com/zxgzlx/blog/issues/13)
+    * [设计模式7-代理模式](https://github.com/zxgzlx/blog/blob/master/notes/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F.md)
   - Python相关知识
   - Java相关知识
   - 移动开发相关知识
