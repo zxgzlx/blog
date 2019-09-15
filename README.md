@@ -26,6 +26,8 @@
     * [设计模式6-策略模式](https://github.com/zxgzlx/blog/issues/13)
     * [设计模式7-适配器模式](https://github.com/zxgzlx/blog/blob/master/notes/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F.md)
   - Python相关知识
+    * [RESTful理解](./notes/RESTful理解.md)
+  
   - Java相关知识
   - 移动开发相关知识
     * [跨平台移动框架介绍](https://github.com/zxgzlx/blog/issues/20)
