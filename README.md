@@ -13,6 +13,7 @@
     * [js中宽松等价与严格等价](https://github.com/zxgzlx/blog/issues/12)
     * [js中XHR和fetch](./notes/xhr和fetch的使用.md)
     * [浏览器js执行部分原理](./notes/浏览器js执行部分原理.md)
+    * [chrome开发者调试工具](./notes/chrome开发者调试工具.md)
   - 游戏开发相关知识
     * [Cocos v2.0.9新API 缓动系统 cc.tween 了解](https://github.com/zxgzlx/blog/issues/5)
     * [websocket简单介绍](./notes/websocket简单介绍.md)
