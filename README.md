@@ -15,6 +15,7 @@
     * [浏览器js执行部分原理](./notes/浏览器js执行部分原理.md)
     * [chrome开发者调试工具](./notes/chrome开发者调试工具.md)
     * [异步逻辑的顺序化](./notes/异步逻辑的顺序化.md)
+    * [Chrome扩展(转载)](./notes/Chrome扩展.md)
   - 游戏开发相关知识
     * [Cocos v2.0.9新API 缓动系统 cc.tween 了解](https://github.com/zxgzlx/blog/issues/5)
     * [websocket简单介绍](./notes/websocket简单介绍.md)
