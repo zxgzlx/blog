@@ -16,6 +16,7 @@
     * [chrome开发者调试工具](./notes/chrome开发者调试工具.md)
     * [异步逻辑的顺序化](./notes/异步逻辑的顺序化.md)
     * [Chrome扩展(转载)](./notes/Chrome扩展.md)
+    * [jQuery学习](./notes/jQuery学习.md)
   - 游戏开发相关知识
     * [Cocos v2.0.9新API 缓动系统 cc.tween 了解](https://github.com/zxgzlx/blog/issues/5)
     * [websocket简单介绍](./notes/websocket简单介绍.md)
@@ -29,6 +30,7 @@
     * [设计模式6-策略模式](https://github.com/zxgzlx/blog/issues/13)
     * [设计模式7-适配器模式](https://github.com/zxgzlx/blog/blob/master/notes/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F.md)
     * [设计模式8-命令模式](notes/设计模式8-命令模式.md)
+    * [设计模式9-模板方法模式](notes/设计模式9-模板方法模式.md)
   - Python相关知识
     * [RESTful理解](./notes/RESTful理解.md)
   
