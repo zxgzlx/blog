@@ -31,6 +31,7 @@
     * [设计模式7-适配器模式](https://github.com/zxgzlx/blog/blob/master/notes/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F.md)
     * [设计模式8-命令模式](notes/设计模式8-命令模式.md)
     * [设计模式9-模板方法模式](notes/设计模式9-模板方法模式.md)
+    * [设计模式10-迭代器模式](notes/设计模式10-迭代器模式.md)
   - Python相关知识
     * [RESTful理解](./notes/RESTful理解.md)
   
