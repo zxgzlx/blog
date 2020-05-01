@@ -38,6 +38,7 @@
   - Java相关知识
   - 移动开发相关知识
     * [跨平台移动框架介绍](https://github.com/zxgzlx/blog/issues/20)
+    * [Android逆向](notes/Android逆向.md)
   - 算法和数据结构
     * [js数据结构和算法--数组](https://github.com/zxgzlx/blog/issues/14)
     * [js数据结构与算法--栈](https://github.com/zxgzlx/blog/issues/15)
