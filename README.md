@@ -21,6 +21,7 @@
     * [Cocos v2.0.9新API 缓动系统 cc.tween 了解](https://github.com/zxgzlx/blog/issues/5)
     * [websocket简单介绍](./notes/websocket简单介绍.md)
     * [位运算在游戏中设置flag](./notes/位运算设置Flag.md)
+    * [Unity插件DOTween学习](./notes/DOTween学习.md)
   - 设计模式
     * [设计模式-概况kotlin实现](https://github.com/zxgzlx/blog/issues/23)
     * [设计模式1-单例模式](https://github.com/zxgzlx/blog/issues/6)
